@@ -1,10 +1,9 @@
+import os
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import Flask-CORS
 import assemblyai as aai
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
 
 # Set AssemblyAI API key
 aai.settings.api_key = "ddb044374c7d4b9bb4b2f8f75de5047f"
