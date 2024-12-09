@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import assemblyai as aai
+import os  # Import os for environment variable access
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -20,4 +21,7 @@ def transcribe():
     return jsonify({"transcription": transcript.text})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use the PORT environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    # Run the app on 0.0.0.0 to make it externally accessible
+    app.run(host='0.0.0.0', port=port)
